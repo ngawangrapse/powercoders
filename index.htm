@@ -1,194 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tibetan Momo Recipe</title>
-
-<style>
-/* ===== Reset & Body ===== */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f6f4ef;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* ===== Fixed Header ===== */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background-image: url("momo1.jpg"); /* replace with your image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-header::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.3);
-    z-index: 0;
-}
-
-header h1, header p {
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    animation: fadeIn 2s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-/* ===== Fixed Tabs ===== */
-.tab-buttons {
-    position: fixed;
-    top: 102px; /* header height */
-    left: 0;
-    width: 100%;
-    display: flex;
-    border-bottom: 2px solid #ccc;
-    background: #f9f9f9;
-    z-index: 999;
-}
-
-.tab-buttons button {
-    flex: 1;
-    padding: 12px;
-    background: #eee;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.tab-buttons button.active {
-    background: #8FBC8F;
-    color: white;
-}
-
-/* ===== Container (scrollable content) ===== */
-.container {
-    max-width: 900px;
-    margin: 180px auto 140px; /* top margin = header + tab height */
-    background: white;
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    min-height: 500px;
-}
-
-/* ===== Tab Content ===== */
-.tab-content {
-    display: none;
-    animation: fadeInContent 0.3s ease;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-@keyframes fadeInContent {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-/* ===== About Section Flex Layout ===== */
-.about-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-.about-text {
-    flex: 1 1 50%;
-    min-width: 250px;
-}
-
-.about-images {
-    flex: 1 1 40%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-align-items: flex-end;
-}
-
-.about-images img {
-    width: 40%;
-	float: right;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-/* ===== Download Button ===== */
-
-
-.download-btn:hover {
-    background-color: #20B2AA;
-}
-.download-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #8FBC8F;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
-    float: right;   /* <-- makes the button align right */
-    margin-top: -10px;
-    margin-bottom: 20px;
-}
-/* ===== Footer ===== */
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #8FBC8F;
-    color: white;
-    text-align: center;
-    padding: 3px 3px;
-    z-index: 1000;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-margin: 0;
-    font-size: 0.5em;
-}
-
-
-
-
-
-/* ===== Video ===== */
-video {
-    width: 100%;
-    max-width: 600px;
-}
-
-/* ===== Responsive ===== */
-@media screen and (max-width: 768px) {
-    .about-flex {
-        flex-direction: column;
-    }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -201,23 +17,24 @@ video {
 
 <!-- ===== Tabs ===== -->
 <div class="tab-buttons">
-        <button class="active" onclick="openTab('about')">About</button>
-	<button onclick="openTab('recipe')">Recipe</button>
-    	<button onclick="openTab('tips')">Tips</button>
-    	<button onclick="openTab('video')">Video</button>
+    <button class="active" onclick="openTab('about')">About</button>
+    <button onclick="openTab('recipe')">Recipe</button>
+    <button onclick="openTab('tips')">Tips</button>
+    <button onclick="openTab('video')">Video</button>
 </div>
 
 <!-- ===== Main Content ===== -->
 <div class="container">
 
- <!-- About Tab -->
+    <!-- About Tab -->
     <div id="about" class="tab-content active">
         <h2>About Momos</h2>
         <div class="about-flex">
             <div class="about-text">
                 <p>Momo is a Tibetan word to describe the kind of dumpling you see in the right side (although the round shape is popular in Tibet too). Nepal has appropriated the term momo, and momo are now widely enjoyed all over the world, but the root of the momo is on the Tibetan side of the Himalayan mountains.</p>
-<p>And the momo has been travelling since long before Tibetan people left their homeland for India. It made inroads into Europe during and after the Mongols, gaining favour in Russia, the Ukraine, and Poland, the birthplace of the pierogi. The Afghans have their own versions too. Momos may rightly lay claim to being the furthest travelled of all foods.</p>
+                <p>And the momo has been travelling since long before Tibetan people left their homeland for India. It made inroads into Europe during and after the Mongols, gaining favour in Russia, the Ukraine, and Poland, the birthplace of the pierogi. The Afghans have their own versions too. Momos may rightly lay claim to being the furthest travelled of all foods.</p>
             </div>
+
             <div class="about-images">
                 <img src="momo1.jpg" alt="Momo 1">
                 <img src="momo2.jpg" alt="Momo 2">
@@ -229,8 +46,9 @@ video {
     <!-- Recipe Tab -->
     <div id="recipe" class="tab-content">
         <h2>Recipe</h2>
-	<a href="recipe.pdf" target="_blank" class="download-btn">
-  📄 Open Recipe PDF</a>
+
+        <a href="recipe.pdf" target="_blank" class="download-btn">📄 Open Recipe PDF</a>
+
         <h3>Dough</h3>
         <ul>
             <li>2 cups all-purpose flour</li>
@@ -247,15 +65,15 @@ video {
             <li>1 tbsp minced ginger</li>
             <li>Salt & pepper to taste</li>
         </ul>
-<h3>Instruction</h3>
- <ul>
+
+        <h3>Instruction</h3>
+        <ul>
             <li>Prepare dough and rest for 20 minutes.</li>
             <li>Mix vegetables (and meat if used).</li>
             <li>Roll dough into circles.</li>
             <li>Fill, fold into dumplings.</li>
             <li>Steam for 10–12 minutes.</li>
         </ul>
-       
     </div>
 
     <!-- Tips Tab -->
@@ -265,31 +83,25 @@ video {
             <li>Use minced chicken or tofu for variety.</li>
             <li>Make chili tomato achar for authentic flavor.</li>
         </ul>
-
     </div>
 
-   
-
     <!-- Video Tab -->
-      <div id="video" class="tab-content">
+    <div id="video" class="tab-content">
         <h2>Video Tutorial</h2>
         <p>Watch this step-by-step momo-making tutorial:</p>
 
-    <div class="video-section">
-    <h2>Momo Making Video</h2>
-    <video controls>
-        <source src="momo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+        <div class="video-section">
+            <video controls>
+                <source src="momo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 
 </div>
-
-</div>
-
 
 <!-- ===== Footer ===== -->
 <footer>
-
     2026 Tibetan Momo Recipe. All rights reserved.
 </footer>
 
@@ -309,4 +121,3 @@ function openTab(tabName) {
 
 </body>
 </html>
-
