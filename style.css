@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f6f4ef;
+    background: #E5FFED;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -61,7 +61,7 @@ header h1, header p {
 .tab-buttons button {
     flex: 1;
     padding: 12px;
-    background: #eee;
+    background: #8FBC8F;
     border: none;
     cursor: pointer;
     font-size: 16px;
@@ -69,21 +69,33 @@ header h1, header p {
 }
 
 .tab-buttons button.active {
-    background: #8FBC8F;
-    color: white;
+    background: #E5FFED;
+    color: black;
 }
 
-/* ===== Container ===== */
+/* ===== Container (scrollable only) ===== */
 .container {
+    position: fixed;           /* fix container inside viewport */
+    top: 140px;                /* header + tabs height */
+    bottom: 40px;              /* footer height */
+    left: 0;
+    right: 0;
     max-width: 900px;
-    margin: 180px auto 140px;
-    background: white;
+    margin: 0 auto;            /* center horizontally */
     padding: 20px 30px;
-    border-radius: 10px;
+    background: #F1FFF6;
+    overflow-y: auto;          /* vertical scroll only in this area */
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    min-height: 500px;
+}
+.container::-webkit-scrollbar {
+    width: 3px;
 }
 
+.container::-webkit-scrollbar-thumb {
+    background: #4CAF50;
+    border-radius: 10px;
+}
 /* ===== Tab Content ===== */
 .tab-content {
     display: none;
